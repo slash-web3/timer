@@ -12,16 +12,28 @@ function My_timer(){
    wind.addEventListener("keyup", function(event){
      if(event.code === 'Enter'){
      val = document.getElementById('wnd228').value;
-     wind.classList.add("_active");
-     new_wind.innerHTML = `<div class="aft_none"><span class="downer">${val}</span></div>`;
+     if(val.match(/[a-zA-Z]+/)){
+       new_wind.innerHTML = `<input id="wnd228" class="wnd__inp" type="text" name="numb" placeholder="0" autocomplete="off"><div class="err_red">Only number</div>`;
+       My_timer();
+     }else {
+       wind.classList.add("_active");
+       new_wind.innerHTML = `<div class="aft_none"><span class="downer">${val}</span></div>`;
+     }
    }
   });
 
   start_btn.addEventListener("click", function(){
     if(val == null) {val = document.getElementById('wnd228').value;}
-    wind.classList.add("_active");
-    new_wind.innerHTML = `<div class="aft_none"><span class="downer">${val}</span></div>`;
-    afterStart();
+
+    if(val.match(/[a-zA-Z]+/)){
+      new_wind.innerHTML = `<input id="wnd228" class="wnd__inp" type="text" name="numb" placeholder="0" autocomplete="off"><div class="err_red">Only number</div>`;
+      My_timer();
+      val = '';
+    }else if(val.match(/[0-9]+/)){
+      wind.classList.add("_active");
+      new_wind.innerHTML = `<div class="aft_none"><span class="downer">${val}</span></div>`;
+      afterStart();
+    }
   });
  }
 

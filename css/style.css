@@ -1,5 +1,4 @@
 .wrapper{
-  min-height: 929px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +64,12 @@
 
 .second__btn{
   min-width: 70px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.err_red{
+  color:red;
   font-family: sans-serif;
   font-size: 15px;
 }
